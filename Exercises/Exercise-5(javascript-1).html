@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The Fortune Teller</title>
+</head>
+
+<body style="margin-top: 25%; text-align: center;background-color: bisque;">
+  <h1 style="margin-top: 20px;">The Fortune Teller</h1>
+  <div id="fortune" style="margin-top: 20px;"></div>
+  <button id="generateButton" onclick="Fortunegenerate()" style="margin-top: 20px;">Generate Fortune</button>
+
+  <script>
+    function tellFortune(numChildren, partnerName, location, jobTitle) {
+      var fortune = "You will be a " + jobTitle + " in " + location + ", married to " + partnerName + " with " + numChildren + " kid(s).";
+      return fortune;
+    }
+
+    function Fortunegenerate() {
+      var fortuneElement = document.getElementById("fortune");
+
+      var manyfortunes = [
+        { numChildren: 2, partnerName: "Emma", location: "New York", jobTitle: "entrepreneur" },
+        { numChildren: 3, partnerName: "Ram", location: "London", jobTitle: "Teacher" },
+        { numChildren: 1, partnerName: "Sophia", location: "Paris", jobTitle: "Chef" },
+        { numChildren: 4, partnerName: "Mathan", location: "Los Angeles", jobTitle: "Doctor" },
+        { numChildren: 0, partnerName: "Athish", location: "Tokyo", jobTitle: "Artist" }
+      ];
+
+      var fortuneHTML = "";
+      manyfortunes.forEach(function (fortune) {
+        
+        
+        var fortuneText = tellFortune(fortune.numChildren, fortune.partnerName, fortune.location, fortune.jobTitle);
+        fortuneHTML += "<p>" + fortuneText + "</p>";
+      });
+
+      fortuneElement.innerHTML = fortuneHTML;
+    }
+  </script>
+
+</body>
+
+</html>
